@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Treasure Hunt Puzzle 5</title>
+    <style>
+        body {
+            background-image: url("https://tse3.mm.bing.net/th?id=OIP.ycN9CSlGm6HKetn0zT_sNAHaF_&pid=Api&P=0");
+            background-repeat: no-repeat;
+            background-size: 100%;
+            font-family: Arial, sans-serif;
+        }
+        #container {
+            margin: 50px auto;
+            width: 600px;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+        }
+        h3 {
+            text-align: center;
+            color: white;
+            margin-top: 50px;
+        }
+        h4 {
+            color: black;
+        }
+        input[type="text"] {
+            padding: 10px;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            width: 100%;
+            box-sizing: border-box;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #3e8e41;
+        }
+        #t {
+            display: none;
+        }
+    </style>
+    <script>
+        var g = 3;
+        function guess() {
+            let ans = document.getElementsByName("ans")[0].value;
+            if (ans == "") {
+                alert("Please enter your answer");
+            } else if (ans.toLowerCase() == "the unicorn") {
+                alert("Congratulations! Your answer is correct.");
+                document.getElementById("t").style.display = "block";
+            } else {
+                if (g == 0) {
+                    alert("You have no chances left.");
+                } else {
+                    g--;
+                    alert("Incorrect answer. You have " + g + " guesses left.");
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+    <h3>Treasure Hunt Puzzle 5</h3>
+    <div id="container">
+        <h4>Go to the article at <a href="https://www.space.com/biggest-space-discoveries-stories-2021" target="_blank">www.space.com</a>, read the information carefully and answer the question below:</h4>
+        <h4>What is the name of the closest known black hole near to Earth?</h4>
+        <input type="text" name="ans" placeholder="Enter your answer">
+        <button onclick="guess()">Submit</button><br><br>
+        <button onclick="location.href='treasure.html'" id="t">Treasure</button>
+    </div>
+</body>
+</html>

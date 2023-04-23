@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<style>
+body{
+    font-weight:bold;
+    background-image: url("https://images.pexels.com/photos/733857/pexels-photo-733857.jpeg?auto=compress&cs=tinysrgb&w=600");
+    background-repeat:no-repeat;
+    background-size:1500px 800px;
+}
+.container{
+    margin: 50px auto;
+    background-color: #fff;
+    width: 500px;
+    height: auto;
+    border: 1px solid #ccc;
+    padding: 30px;
+    box-shadow: 0px 0px 10px #ccc;
+}
+input{
+    border: none;
+    border-bottom: 2px solid coral;
+    background-color: #f0f0f0;
+    padding: 10px;
+    font-size: 16px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+input[type="submit"], input[type="reset"]{
+    background-color: coral;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease-in-out;
+}
+input[type="submit"]:hover, input[type="reset"]:hover{
+    background-color: #fff;
+    color: coral;
+    border: 1px solid coral;
+}
+h1{
+    text-align: center;
+    margin-bottom: 30px;
+    color:white;
+}
+a{
+    text-decoration: none;
+    color: coral;
+    transition: all 0.3s ease-in-out;
+}
+a:hover{
+    color: #fff;
+    background-color: coral;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+#top{
+        width:100%;
+        height:30%;
+        background-color:black;
+    }
+</style>
+</head>
+<body>
+<div id="top"><h1>SIGN IN</h1></div>
+<div class="container">
+<form method="post" action="handle.php">
+    <span class="error">* <?php echo $emailErr;?></span>
+    <label>E-mail:</label>
+    <input type="text" name="email">
+
+
+    <label>ID:</label>
+    <input type="text" name="name">
+
+    <label>PASSWORD:</label>
+    <input type="password" name="pass">
+
+    <input type="submit" value="SUBMIT">
+    <input type="reset" value="RESET">
+
+</form>
+<p>Already have an account? <a href="login.php">Login</a></p>
+</div>
+</body>
+</html>

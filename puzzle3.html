@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Puzzle 3</title>
+	<style>
+		body {
+            padding-top:75px;
+			font-family: Arial, sans-serif;
+			font-size: 16px;
+			line-height: 1.5;
+			background-image:url("https://i.pinimg.com/236x/61/fb/10/61fb1050bb44c790db6b526b27996822.jpg");
+        	background-repeat:no-repeat;
+        	background-size:1600px 800px;
+		}
+
+		.container {
+            padding:20px;
+            padding-top:25px;
+            border:1px solid black;
+			max-width: 800px;
+			margin: 0 auto;
+			background-color:bisque;
+			border-radius: 10px;
+			box-shadow: 0px 0px 10px rgba(0,0,0,0.2);
+		}
+
+		h1 {
+			font-size: 28px;
+			font-weight: bold;
+			text-align: center;
+			margin-top: 0;
+		}
+
+		p {
+			margin: 0;
+			padding: 10px;
+			border-radius: 5px;
+			cursor: pointer;
+		}
+
+		p:hover {
+			background-color: #ddd;
+		}
+
+		p a {
+			color: blue;
+			text-decoration: none;
+		}
+
+		p a:hover {
+			text-decoration: underline;
+		}
+
+		#one {
+			margin-top: 20px;
+			padding: 20px;
+			background-color: #eee;
+			border-radius: 5px;
+			display: none;
+		}
+
+		#one.show {
+			display: block;
+		}
+        input{
+            width:125px;
+            height:20px;
+            padding:5px;
+        }
+        button{
+            background-color: lightgreen;
+			padding: 10px;
+		    border: none;
+		    border-radius: 5px;
+		    cursor: pointer;
+		    font-size: 16px;
+		    margin-bottom: 10px;
+        }
+		#level2 {
+        background-color: aquamarine;
+		color: white;
+		padding: 10px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		font-size: 16px;
+		margin-bottom: 10px;
+        display: none;
+    }
+	</style>
+</head>
+<center><body>
+	<div class="container">
+		<h1>Puzzle 3</h1>
+		<p onmouseover="B(this)" onmouseout="C(this)" onclick="D(this)">Find the clue and answer the question below</p>
+		<p id="one"></p><br>
+		<center><button id="level2" onclick="location.href='puzzle4.html'">LEVEL 4</button></center>
+	</div>
+    <br><br>
+	<script>
+		function B(x) {
+			x.style.color = 'blue';
+		}
+
+		function C(x) {
+			x.style.color = 'black';
+		}
+
+		function D(x) {
+			var one = document.getElementById('one');
+			one.innerHTML = '<a href="https://youtu.be/HDPOPMYsDrQ" target="_blank">https://youtu.be/HDPOPMYsDrQ</a><br><br><p>what is the answer to the 7th question in the video<br><br><input type="text"  id="ans" placeholder="enter your answer"><br><br><button onclick="guess()">submit</button>';
+			one.classList.add('show');
+		}
+        let g=3;
+        function guess(){
+            const ans=document.getElementById("ans").value;
+            if (ans == ""){
+                alert("please enter the answer!");
+            }
+            else if (ans=="onion"){
+				alert("CONGRATULATIONS!!");
+                document.getElementById("level2").style.display = "block";
+                document.getElementById("level2").style.color = "red";
+                document.getElementById("level2").style.padding = "5px";
+			}
+            else{
+                if (g==0){
+                    alert("BETTER LUCK NEXT TIME");
+                }
+                else{
+                    g--;
+                    alert("you have "+g+" guesses left");
+                }
+            }
+        }
+	</script>
+</body></center>
+</html>

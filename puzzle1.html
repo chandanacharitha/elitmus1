@@ -1,0 +1,122 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+    *{
+        margin:0;
+        padding:0;
+        box-sizing: border-box;
+    }
+    body {
+        background-image:url("https://i.pinimg.com/236x/7b/9d/05/7b9d05d4b454e7b1524d04fadc76e614.jpg");
+        background-repeat:no-repeat;
+        background-size:1600px 800px;
+    }
+    .container {
+        width:800px;
+        margin-top:10px;
+        margin-bottom:5px;
+        margin-left:380px;
+        height:730px;
+        padding:10px;
+        border: 2px solid #ddd;
+        border-radius: 10px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    h2 {
+        font-size: 28px;
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    p {
+        font-weight: bold;
+        font-size: 20px;
+        text-align: center;
+        margin-top: 10px;
+    }
+    #image {
+        display: block;
+        margin: 0 auto;
+        max-width: 100%;
+        height: auto;
+        margin-bottom: 10px;
+    }
+    .ans {
+        display: block;
+        margin: 0 auto;
+        font-size: 20px;
+        padding: 5px;
+        border-radius: 5px;
+        border: 2px solid #291e1e;
+        box-sizing: border-box;
+        width: 200px;
+        transition: background-color 0.3s ease;
+    }
+    .ans:hover {
+        background-color: blanchedalmond;
+    }
+    .sub {
+        display: block;
+        margin: 10px auto;
+        color: white;
+        padding: 10px;
+        border-radius: 5px;
+        border: none;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background-color 0.3s ease;
+        background-color: #291e1e;
+    }
+    .sub:hover {
+        background-color: #564b4b;
+    }
+    #level2 {
+        background-color: #37b17d;
+		color: white;
+		padding: 5px;
+		border: none;
+		border-radius: 5px;
+		cursor: pointer;
+		font-size: 16px;
+        display: none;
+    }
+    #level2:hover {
+        background-color: #2c8c66;
+    }
+</style>
+<script>
+    let remaining = 3;
+    function guess() {
+        const ans = document.getElementById("ans").value.toLowerCase();
+        if (ans == "") {
+            alert("Please enter the answer!");
+        }
+        else if (ans == "amsterdam") {
+            alert("CONGRATULATIONS!!");
+            document.getElementById("level2").style.display = "block";
+        }
+        else {
+            remaining--;
+            if (remaining === 0) {
+                alert("You have no guesses remaining. GAME OVER!");
+            } 
+            else {
+                alert("You have " + remaining + " remaining");
+            }
+        }
+    }
+</script>
+</head>
+<body>
+<div class="container">
+    <center><h2>PUZZLE 1</h2></center>
+    <p>Follow the directions and enter the name of the place you end up at the end.<br>You have 3 chances.<br>Here R=Right,L=Left,U=Up,D=Down. Start at Lisbon<br><br>
+        R,D,R,D,L,U,R,R,D,R,R,U,L
+    </p><br>
+    <img id="image" src="https://i.pinimg.com/564x/64/e3/18/64e31801719b667849404d47c9aad108.jpg"><br>
+    <input type="text" name="ans" class="ans" id="ans" placeholder="Enter your answer">
+    <button onclick="guess()" class="sub">submit</button>
+    <center><button id="level2" onclick="location.href='puzzle2.html'">LEVEL 2</button></center>
+    </body>
+    </html>

@@ -1,0 +1,104 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<title>Puzzle 2</title>
+	<style>
+		body {
+			font-family: Arial, sans-serif;
+			font-weight:bold;
+			background-image:url("https://i.pinimg.com/236x/b8/0a/a8/b80aa8ea55f5b8d1ac8982639cd42e8a.jpg");
+        	background-repeat:no-repeat;
+        	background-size:1600px 800px;
+		}
+		h2 {
+			color: #333333;
+			text-align: center;
+		}
+		h3 {
+			color: #333333;
+			text-align: center;
+		}
+		.image {
+            border:2px solid black;
+			display: block;
+			margin-left: auto;
+			margin-right: auto;
+			width: 38%;
+			height: auto;
+			margin-top: 20px;
+			margin-bottom: 20px;
+		}
+		input[type="text"] {
+			padding: 10px;
+			border: none;
+			border-radius: 5px;
+			margin-bottom: 10px;
+			width: 100%;
+			max-width: 400px;
+			font-size: 16px;
+		}
+        input:hover{
+            background-color: rgb(233, 223, 212);
+        }
+		button {
+			background-color: #4CAF50;
+			color: white;
+			padding: 10px 20px;
+			border: none;
+			border-radius: 5px;
+			cursor: pointer;
+			font-size: 16px;
+			margin-bottom: 10px;
+		}
+		button:hover {
+			background-color: #3e8e41;
+		}
+		p {
+			font-size: 18px;
+		}
+		#level2 {
+		background-color:aquamarine;
+        display: none;
+        }
+	</style>
+</head>
+<body>
+	<center><h2>Puzzle 2</h2></center>
+	<center><h3>Hidden Items</h3></center>
+	<img src="https://i.redd.it/gkgojpxz9dw41.jpg" alt="puzzle image" name="image" class="image">
+	<center><p>The building that has the most stories.</p>
+	<input type="text" id="ans1" placeholder="Enter your answer">
+	<p>I have hands but cannot clap.</p>
+	<input type="text" id="ans2" placeholder="Enter your answer"><br>
+	<button onclick="guess()">Submit</button></center>
+	<center><button id="level2" onclick="location.href='puzzle3.html'">LEVEL 3</button></center>
+	<script>
+		var guesses = 3;
+function guess() {
+    var ans1 = document.getElementById("ans1").value.toLowerCase();
+    var ans2 = document.getElementById("ans2").value.toLowerCase();
+    if (ans1 === "library" && ans2 === "clock") {
+		alert("CONGRATULATIONS!!");
+		document.getElementById("level2").style.display = "block";
+        document.getElementById("level2").style.color = "red";
+        document.getElementById("level2").style.padding = "5px";
+    } else {
+        if (ans1 !== "library" && ans2 !== "clock") {
+            alert("Sorry, both of your answers are incorrect. You have " + --guesses + " guesses left. Please try again.");
+        } else if (ans1 !== "library") {
+            alert("Sorry, your answer for the first question is incorrect. You have " + --guesses + " guesses left. Please try again.");
+        } else {
+            alert("Sorry, your answer for the second question is incorrect. You have " + --guesses + " guesses left. Please try again.");
+        }
+        if (guesses === 0) {
+            alert("Sorry, you have run out of guesses. The correct answers are 'library' and 'clock'.");
+            document.getElementById("ans1").disabled = true;
+            document.getElementById("ans2").disabled = true;
+            document.getElementsByTagName("button")[0].disabled = true;
+        }
+    }
+}
+
+	</script>
+</body>
+</html>

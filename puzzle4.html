@@ -1,0 +1,150 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <style>
+        body{
+            background-image: url("https://i.pinimg.com/236x/f0/47/63/f04763dc437e4239e0091e739e563729.jpg");
+            background-repeat: no-repeat;
+            background-size: 1600px 800px;
+        }
+        #red, #black, #yellow, #blue {
+            margin-left:20px;
+            margin-top:80px;
+            float:left;
+            margin-right:60px;
+            margin-bottom: 20px;
+            vertical-align: top;
+            
+        }
+        #one, #two, #three, #four {
+            background-color: rgb(255, 240, 221);
+            float:left;
+            width: 100px;
+            height: 100px;
+            border: 1px solid black;
+            margin-left: 20px;
+            margin-right: 60px;
+            margin-bottom: 20px;
+            text-align: center;
+            padding-bottom:18px;
+        }
+        #one b, #two b, #three b, #four b {
+            font-size: 48px;
+            line-height: 100px;
+        }
+        img {
+            width: 100px;
+            height: 100px;
+            cursor: pointer;
+        }
+        input{
+            margin-top:15px;
+            padding:5px;
+        }
+        input:hover{
+            background-color: aquamarine;
+        }
+        button{
+            background-color: chartreuse;
+        }
+        button:hover{
+            background-color: rgb(59, 192, 59);
+        }
+        #container{
+            background-color: rgb(252, 205, 145);
+            margin-top:50px;
+            margin-left: 120px;
+            align-self: center;
+            align-items: center;
+            border:2px solid black;
+            width:80%;
+            height:auto;
+            padding-left:15px;
+            padding-bottom:20px;
+        }
+        #level2{
+            display:none;
+        }
+    </style>
+    
+    <script>
+        function RED(x){
+            var one=document.getElementById("one");
+            var red=document.getElementById("red");
+            red.innerHTML = '<img src="https://tse2.mm.bing.net/th?id=OIP.eMMBh_87m_TYnmEd6fPHlAHaHa&pid=Api&P=0">';
+            one.innerHTML = '<p><b>O</b></p>';
+            one.classList.add('show');
+            
+        }
+        function BLACK(x){
+            var two=document.getElementById("two");
+            var black=document.getElementById("black");
+            black.innerHTML = '<img src="https://tse4.mm.bing.net/th?id=OIP.L2IuGuK29EHeImA8z3kEgwHaJb&pid=Api&P=0">';
+            two.innerHTML = '<p><b>T</b></p>';
+            two.classList.add('show');  
+        }
+        function YELLOW(x){
+            var three=document.getElementById("three");
+            var yellow=document.getElementById("yellow");
+            yellow.innerHTML = '<img src="https://tse2.mm.bing.net/th?id=OIP.NcKcAbMUV4F_my9t8EkWawAAAA&pid=Api&P=0">';
+            three.innerHTML = '<p><b>P</b></p>';
+            three.classList.add('show');  
+        }
+        function BLUE(x){
+            var four=document.getElementById("four");
+            var blue=document.getElementById("blue");
+            blue.innerHTML = '<img src="https://tse1.mm.bing.net/th?id=OIP.wFaCXasum-u4t4i3KUQhCQAAAA&pid=Api&P=0">';
+            four.innerHTML = '<p><b>S</b></p>';
+            four.classList.add('show');  
+        }
+        let g=3;
+        function guess(){
+            const ans=document.getElementById("ans").value;
+            if (ans == ""){
+                alert("please enter the answer!");
+            }
+            else if (ans=="spot"){
+                alert("CONGRATULATIONS! you guessed it right");
+                document.getElementById("level2").style.display = "block";
+                document.getElementById("level2").style.color = "red";
+                document.getElementById("level2").style.padding = "5px";
+            }
+            else{
+                if (g==0){
+                    alert("BETTER LUCK NEXT TIME");
+                }
+                else{
+                    g--;
+                    alert("you have "+g+" guesses left");
+                }
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <div id="container">
+    <center><h3>PUZZLE 4</h3>
+    <h4>Open the doors to find the letters. Form a four letter word from the given letters and enter your answer.</h4></center>
+    <div id="red">
+        <img onclick="RED(this)" name="red" src="https://tse1.mm.bing.net/th?id=OIP.rDvFWSQp3JtKobAfw5t3mQHaHa&pid=Api&P=0">
+    </div>
+    <div id="black">
+        <img onclick="BLACK(this)" name="black" src="https://tse1.mm.bing.net/th?id=OIP.boediD-1OK_kzGTCHBrC0gHaJb&pid=Api&P=0">
+    </div>
+    <div id="yellow">
+        <img onclick="YELLOW(this)" name="yellow" src="https://tse4.mm.bing.net/th?id=OIP.bWdfluIPEM2qS8El1rBYbQAAAA&pid=Api&P=0">
+    </div>
+    <div id="blue">
+        <img onclick="BLUE(this)" name="blue" src="https://tse2.mm.bing.net/th?id=OIP.MXOJHg_MSm3IBnXJ6_THtwHaHa&pid=Api&P=0">
+    </div>
+    <div id="one"></div>
+    <div id="two"></div>
+    <div id="three"></div>
+    <div id="four"></div>&nbsp
+    <input type="text" id="ans">&nbsp &nbsp
+    <button onclick="guess()">submit</button>
+    <center><button id="level2" onclick="location.href='puzzle5.html'">LEVEL 5</button></center>
+    </div>
+</body>
+</html>
